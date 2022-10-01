@@ -44,25 +44,25 @@ app.use(express.json())
 
 
 // Route to get all posts
-app.get("/api/get", (req,res)=>{
-db.query("SELECT * FROM enquiry", (err,result)=>{
-    if(err) {
-    console.log(err)
-    } 
-res.send(result)
-});   });
+// app.get("/api/get", (req,res)=>{
+// db.query("SELECT * FROM enquiry", (err,result)=>{
+//     if(err) {
+//     console.log(err)
+//     } 
+// res.send(result)
+// });   });
 
 // Route to get one post
-app.get("/api/getFromId/:id", (req,res)=>{
+// app.get("/api/getFromId/:id", (req,res)=>{
 
-const id = req.params.id;
- db.query("SELECT * FROM enquiry WHERE mobile_number = ? ", id, 
- (err,result)=>{
-    if(err) {
-    console.log(err)
-    } 
-    res.send(result)
-    });   });
+// const id = req.params.id;
+//  db.query("SELECT * FROM enquiry WHERE mobile_number = ? ", id, 
+//  (err,result)=>{
+//     if(err) {
+//     console.log(err)
+//     } 
+//     res.send(result)
+//     });   });
 
 // Route for creating the post
 app.post('/api/create', (req,res)=> {
@@ -106,13 +106,13 @@ app.listen(PORT, ()=>{
 })
 
 // Route to get all apartments list
-app.get("/api/get_apartment", (req,res)=>{
-    db.query("SELECT * FROM apartments_detail", (err,result)=>{
-        if(err) {
-        console.log(err)
-        } 
-    res.send(result)
-    });   });
+// app.get("/api/get_apartment", (req,res)=>{
+//     db.query("SELECT * FROM apartments_detail", (err,result)=>{
+//         if(err) {
+//         console.log(err)
+//         } 
+//     res.send(result)
+//     });   });
 
     // Route for Booking Apartment
     app.post('/api/book_apt', (req,res)=> {
