@@ -2,32 +2,33 @@ const express = require('express');
 // const db = require('./config/db')
 const cors = require('cors');
 const mysql = require("mysql")
+const upload = require('express-fileupload')
 const app = express();
-const nodemailer = require('nodemailer')
-const transpoter = nodemailer.createTransport({
-    // host:'smtp.gmail.com',
-    // port:'587',
-    // secure:false,
-    service:'gmail',
-    auth:{
-        user:'dcbaraik09@gmail.com',
-        pass:'6200525143'
-    }
-})
-const mailOptions ={
-    from: 'dcbaraik09@gmail.com',
-    to:'dcbaraik09@gmail.com',
-    subject:'just for trst',
-    text:'hello this this dharmendra'
+// const nodemailer = require('nodemailer')
+// const transpoter = nodemailer.createTransport({
+//     // host:'smtp.gmail.com',
+//     // port:'587',
+//     // secure:false,
+//     service:'gmail',
+//     auth:{
+//         user:'dcbaraik09@gmail.com',
+//         pass:'6200525143'
+//     }
+// })
+// const mailOptions ={
+//     from: 'dcbaraik09@gmail.com',
+//     to:'dcbaraik09@gmail.com',
+//     subject:'just for trst',
+//     text:'hello this this dharmendra'
 
-}
-transpoter.sendMail(mailOptions , function(err ,info){
-if(err){
-    console.log(err);
-}else{
-    console.log("this is for text", info.response);
-}
-})
+// }
+// transpoter.sendMail(mailOptions , function(err ,info){
+// if(err){
+//     console.log(err);
+// }else{
+//     console.log("this is for text", info.response);
+// }
+// })
 
 const db = mysql.createPool({
     host: "localhost",
@@ -101,7 +102,7 @@ if(err) {
 console.log(err)
         } }) })
 
-app.listen(PORT, ()=>{
+app.listen(PORT || process.env.PORT, ()=>{
     console.log(`Server is running on PORT :`,PORT)
 })
 
@@ -135,6 +136,10 @@ app.listen(PORT, ()=>{
 
     // Route for career
     app.post('/api/career', (req,res)=> {
+
+        if(req.body.userResume){
+            console.log(req.body.userResume)
+        }
 
         const username = req.body.userName;
         const email = req.body.userEmail;
