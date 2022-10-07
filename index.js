@@ -38,7 +38,7 @@ const db = mysql.createPool({
 
 })
 console.log("data base is connected asdf rr", db);
-const PORT = 3001 || process.env.PORT;
+const PORT = process.env.PORT;
 app.use(cors());
 app.use(express.json())
 
@@ -106,7 +106,7 @@ app.delete('/api/delete/:id', (req, res) => {
     })
 })
 
-app.listen(PORT || process.env.PORT, () => {
+app.listen(PORT, () => {
     console.log(`Server is running on PORT :`, PORT)
 })
 
