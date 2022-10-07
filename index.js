@@ -38,7 +38,7 @@ const db = mysql.createPool({
 
 })
 console.log("data base is connected asdf rr", db);
-const PORT = 3001;
+const PORT = 3001 || process.env.PORT;
 app.use(cors());
 app.use(express.json())
 
