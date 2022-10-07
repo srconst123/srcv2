@@ -31,7 +31,7 @@ const app = express();
 // })
 
 const db = mysql.createPool({
-    host: "localhost",
+    host: "0.0.0.0",
     user: "root",
     password: "",
     database: "sriram_construction",
