@@ -37,8 +37,8 @@ const db = mysql.createPool({
     database: "sriram_construction",
 
 })
-console.log("data base is connected asdf rr" , db);
-const  PORT = 3001;
+console.log("data base is connected asdf rr", db);
+const PORT = 3001;
 app.use(cors());
 app.use(express.json())
 
@@ -66,44 +66,48 @@ app.use(express.json())
 //     });   });
 
 // Route for creating the post
-app.post('/api/create', (req,res)=> {
+app.post('/api/create', (req, res) => {
 
-const username = req.body.userName;
-const email = req.body.userEmail;
-const mobile = req.body.userMobile;
-const message = req.body.userMessage;
+    const username = req.body.userName;
+    const email = req.body.userEmail;
+    const mobile = req.body.userMobile;
+    const message = req.body.userMessage;
 
 
-db.query("INSERT INTO enquiry (name, email, mobile_number, message) VALUES (?,?,?,?)", [username, email, mobile, message] , (err,result)=>{
-   if(err) {
-   console.log(err)
-   } 
-   console.log(result)
-});   })
+    db.query("INSERT INTO enquiry (name, email, mobile_number, message) VALUES (?,?,?,?)", [username, email, mobile, message], (err, result) => {
+        if (err) {
+            console.log(err)
+        }
+        console.log(result)
+    });
+})
 
 // Route to like a post
-app.post('/api/like/:id',(req,res)=>{
+app.post('/api/like/:id', (req, res) => {
 
-const id = req.params.id;
-db.query("UPDATE enquiry SET likes = likes + 1 WHERE id = ?",id, (err,result)=>{
-    if(err) {
-   console.log(err)   } 
-   console.log(result)
-    });    
+    const id = req.params.id;
+    db.query("UPDATE enquiry SET likes = likes + 1 WHERE id = ?", id, (err, result) => {
+        if (err) {
+            console.log(err)
+        }
+        console.log(result)
+    });
 });
 
 // Route to delete a post
 
-app.delete('/api/delete/:id',(req,res)=>{
-const id = req.params.id;
+app.delete('/api/delete/:id', (req, res) => {
+    const id = req.params.id;
 
-db.query("DELETE FROM enquiry WHERE id= ?", id, (err,result)=>{
-if(err) {
-console.log(err)
-        } }) })
+    db.query("DELETE FROM enquiry WHERE id= ?", id, (err, result) => {
+        if (err) {
+            console.log(err)
+        }
+    })
+})
 
-app.listen(PORT || process.env.PORT, ()=>{
-    console.log(`Server is running on PORT :`,PORT)
+app.listen(PORT || process.env.PORT, () => {
+    console.log(`Server is running on PORT :`, PORT)
 })
 
 // Route to get all apartments list
@@ -115,41 +119,45 @@ app.listen(PORT || process.env.PORT, ()=>{
 //     res.send(result)
 //     });   });
 
-    // Route for Booking Apartment
-    app.post('/api/book_apt', (req,res)=> {
+// Route for Booking Apartment
+app.post('/api/book_apt', (req, res) => {
 
     const username = req.body.userName;
     const email = req.body.userEmail;
     const mobile = req.body.userMobile;
     const message = req.body.userMessage;
-    const block =  req.body.userBlock;
+    const block = req.body.userBlock;
     const floor = req.body.userFloor;
     const unit = req.body.userUnit;
-    
-    
-    db.query("INSERT INTO bookings (name, email, mobile_number, block, floor, unit, message) VALUES (?,?,?,?,?,?,?)", [username, email, mobile, block, floor, unit, message] , (err,result)=>{
-       if(err) {
-       console.log(err)
-       } 
-       console.log(result)
-    });   })
 
-    // Route for career
-    app.post('/api/career', (req,res)=> {
 
-        if(req.body.userResume){
-            console.log(req.body.userResume)
+    db.query("INSERT INTO bookings (name, email, mobile_number, block, floor, unit, message) VALUES (?,?,?,?,?,?,?)", [username, email, mobile, block, floor, unit, message], (err, result) => {
+        if (err) {
+            console.log(err)
         }
+        console.log(result)
+    });
+})
 
-        const username = req.body.userName;
-        const email = req.body.userEmail;
-        const mobile = req.body.userMobile;
-        const resume = req.body.userResume;
-        
-        
-        db.query("INSERT INTO career (name, email, mobile_number, resume) VALUES (?,?,?,?)", [username, email, mobile, resume] , (err,result)=>{
-           if(err) {
-           console.log(err)
-           } 
-           console.log(result)
-        });   })
+// Route for career
+app.post('/api/career', (req, res) => {
+
+
+
+    const username = req.body.userName;
+    const email = req.body.userEmail;
+    const mobile = req.body.userMobile;
+    const resume = req.body.userResume;
+
+
+    db.query("INSERT INTO career (name, email, mobile_number, resume) VALUES (?,?,?,?)", [username, email, mobile, resume], (err, result) => {
+        if (err) {
+            console.log(err)
+        }
+        console.log(result)
+    });
+})
+
+app.post('/api/upload', (req, res) => {
+
+})
