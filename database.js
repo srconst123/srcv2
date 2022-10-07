@@ -5,7 +5,7 @@ const poolk =createPool({
     user:"root",
     password:"",
     database:"datasrc",
-    port:3000,
+    port:3000 || process.env.PORT,
     connectionLimit: 10
 })
 
