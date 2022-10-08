@@ -31,10 +31,10 @@ const app = express();
 // })
 
 const db = mysql.createPool({
-    host: "0.0.0.0",
-    user: "root",
-    password: "",
-    database: "sriram_construction",
+    host: "files.000webhost.com",
+    user: "id19652907_sriramconst",
+    password: "ztI0PXiuCe7IGR#>",
+    database: "id19652907_sriram_const",
 
 })
 console.log("data base is connected asdf rr", db);
