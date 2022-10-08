@@ -1,10 +1,10 @@
 const {createPool }=require('mysql');
 
 const poolk =createPool({
-    host:"0.0.0.0",
-    user:"root",
-    password:"",
-    database:"datasrc",
+    host: "files.000webhost.com",
+    user: "id19652907_sriramconst",
+    password: "ztI0PXiuCe7IGR#>",
+    database: "id19652907_sriram_const",
     port:3000 || process.env.PORT,
     connectionLimit: 10
 })
