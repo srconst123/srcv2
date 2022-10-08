@@ -1,7 +1,7 @@
 const {createPool }=require('mysql');
 
 const poolk =createPool({
-    host: "files.000webhost.com",
+    host: "constsrc.000webhostapp.com",
     user: "id19652907_sriramconst",
     password: "ztI0PXiuCe7IGR#>",
     database: "id19652907_sriram_const",
