@@ -150,7 +150,7 @@ app.post('/api/career', (req, res) => {
     const resume = req.body.userResume;
 
 
-    db.query("INSERT INTO career (name, email, mobile_number, resume) VALUES (?,?,?,?)", [username, email, mobile, resume], (err, result) => {
+    db.query("INSERT INTO careers (name, email, mobile_number, resume) VALUES (?,?,?,?)", [username, email, mobile, resume], (err, result) => {
         if (err) {
             console.log(err)
         }
